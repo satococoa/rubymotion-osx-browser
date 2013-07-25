@@ -5,11 +5,7 @@ class AppDelegate
   end
 
   def buildWindow
-    @mainWindow = NSWindow.alloc.initWithContentRect([[240, 180], [480, 360]],
-      styleMask: NSTitledWindowMask|NSClosableWindowMask|NSMiniaturizableWindowMask|NSResizableWindowMask,
-      backing: NSBackingStoreBuffered,
-      defer: false)
-    @mainWindow.title = NSBundle.mainBundle.infoDictionary['CFBundleName']
-    @mainWindow.orderFrontRegardless
+    @main_controller = MainController.alloc.initWithWindowNibName('MainWindow')
+    @main_controller.window.makeKeyAndOrderFront(self)
   end
 end
